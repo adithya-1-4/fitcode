@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %}
+    Change Level
+{% endblock %}
+
+{% block class %}
+    login
+{% endblock %}
+
+{% block body %}
+    <h2></h2>
+    <form action="/level" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" id="username" name="username" placeholder="Username" type="text" onKeyup="checkform()">
+        </div>
+        <select class="custom-select" name="level" id="level">
+          <option value="level" disabled selected hidden>Level of Fitness</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select><br>
+        <br>
+        <button class="btn btn-outline-dark" id="submit" type="submit" disabled>Change Level</button>
+    </form>
+    <script>
+        document.querySelector("#username").onkeyup = function() {
+            if (document.querySelector("#username").value == '') {
+                document.querySelector("#submit").disabled = true;
+            }
+            else {
+                document.querySelector("#submit").disabled = false;
+            }
+
+        }
+    </script>
+{% endblock %}

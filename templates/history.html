@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block class %}
+    histique
+{% endblock %}
+
+
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Categories</th>
+                <th>Time(in minutes)</th>
+                <th>Workout</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for workout in range(length): %}
+            <tr>
+                <td>{{history[workout]["categories"]}}</td>
+                <td>{{history[workout]["time"]}}</td>
+                <td>{{history[workout]["workout"]}}</td>
+                <td>{{history[workout]["timestamp"]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

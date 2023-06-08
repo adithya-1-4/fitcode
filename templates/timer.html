@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Timer
+{% endblock %}
+
+{% block class %}
+    stopwatch
+{% endblock %}
+
+
+{% block body %}
+    <div class="form-group">
+        <input autocomplete="off" class="form-control" min="0" id="userInput2" placeholder="Minutes" type="number" selected="0">
+    </div>
+    <div class="form-group">
+        <input autocomplete="off" class="form-control" min="0" id="userInput" placeholder="Seconds" type="number">
+    </div>
+    <p id="timerr"> 00:00 </p>
+    <button class="btn btn-outline-success btn-lg"onclick="startTime()">Start</button>
+    <button class="btn btn-outline-danger btn-lg" onclick="stop()">Stop</button>
+    <button class="btn btn-outline-dark btn-lg" onclick="reset()">Reset</button><br><br>
+    <form action="/workout"><button class="btn btn-dark" id="work">Back to Workout</button></form>
+    <script>
+        var myVar;
+        var timer = document.getElementById("userInput");
+        var timer2 = document.getElementById("userInput2");
+        var countDownSeconds
+        var countDownMinutes;
+        function startTime(){
+        myVar = setInterval(start, 1000);
+        if (timer2.value < 10) {
+            if (timer.value < 10) {
+                document.getElementById("timerr").innerHTML = "0" + timer2.value + ":" + "0" + timer.value;
+            }
+            else {
+            document.getElementById("timerr").innerHTML = "0" + timer2.value + ":" + timer.value;
+            }
+        }
+        else {
+            if (timer.value < 10) {
+                document.getElementById("timerr").innerHTML = timer2.value + ":" + "0" + timer.value;
+            }
+            else {
+                document.getElementById("timerr").innerHTML = timer2.value + ":" + timer.value;
+            }
+        }
+        countDownSeconds = timer.value;
+        countDownMinutes = timer2.value;
+    }
+
+      function start(){
+        if (countDownSeconds == 0) {
+            countDownMinutes--
+            countDownSeconds = 59
+        }
+        else {
+        countDownSeconds--;
+        }
+        if (countDownMinutes < 10) {
+            if (countDownSeconds < 10) {
+                document.getElementById("timerr").innerHTML = "0" + countDownMinutes + ":" + "0" + countDownSeconds;
+            }
+            else {
+            document.getElementById("timerr").innerHTML = "0" + countDownMinutes + ":" + countDownSeconds;
+            }
+        }
+        else {
+            if (countDownSeconds < 10) {
+                document.getElementById("timerr").innerHTML = countDownMinutes + ":" + "0" + countDownSeconds;
+            }
+            else {
+            document.getElementById("timerr").innerHTML = countDownMinutes + ":" + countDownSeconds;
+            }
+        }
+        if (countDownSeconds == 0 && countDownMinutes == 0){
+          stop();
+          document.getElementById("timerr").innerHTML = "00:00";
+        }
+        if (countDownMinutes < 0) {
+            document.getElementById("timerr").innerHTML = "00:00";
+        }
+      }
+
+      function stop(){
+        window.clearInterval(myVar);
+      }
+      function reset() {
+          clearInterval(myVar);
+          document.getElementById("timerr").innerHTML = "00:00";
+      }
+    </script>
+{% endblock %}

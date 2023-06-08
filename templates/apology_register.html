@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block class %}
+    login
+{% endblock %}
+
+{% block body %}
+    <h1 style="text-align:center">Sorry!</h1>
+    <div class="alert alert-danger" role="alert" style="width:60%; margin-left: auto; margin-right: auto">
+      Username is already taken. Please choose a different username.
+    </div>
+    <a href="/register">Click here</a> to try again
+{% endblock %}

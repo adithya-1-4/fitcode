@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Exercise
+{% endblock %}
+
+{% block class %}
+    home
+{% endblock %}
+
+{% block body %}
+    <h4 style="text-align: start;">Choose one or more of the following
+    to work on during your workout today:</h4>
+    <form class="parts" action="/exercise" method="post">
+        <input type="checkbox" id="arms" name="categories" value="arms">
+        <label for="arms">Arms</label><br>
+        <input type="checkbox" id="abs" name="categories" value="abs">
+        <label for="abs">Abs</label><br>
+        <input type="checkbox" id="legs" name="categories" value="legs">
+        <label for="legs">Legs</label><br>
+        <input type="checkbox" id="cardio" name="categories" value="cardio">
+        <label for="cardio">Cardio</label><br>
+        <button class="btn btn-outline-dark" id="submit" type="submit">Submit</button>
+    </form>
+    <script>
+    </script>
+{% endblock %}

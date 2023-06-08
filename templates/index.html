@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block class %}
+    home
+{% endblock %}
+
+{% block body %}
+    <p class="intro">Hello! Welcome to today's session.</p>
+    <p class="intro">Are you ready to workout?</p>
+    <form action="/time">
+        <button type="submit" class="btn btn-dark btn-lg">Let's Go!!</button>
+    </form>
+
+{% endblock %}

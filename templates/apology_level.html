@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block class %}
+    login
+{% endblock %}
+
+{% block body %}
+    <h1 style="text-align:center">Sorry!</h1>
+    <div class="alert alert-danger" role="alert" style="width: 60%; margin-left:auto; margin-right: auto">
+      Username does not exist.<br>
+      Please try again with a different username.
+    </div>
+    <a href="/level">Click here</a> to try again
+{% endblock %}

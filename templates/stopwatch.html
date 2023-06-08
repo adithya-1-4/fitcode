@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Stopwatch
+{% endblock %}
+
+{% block class %}
+    stopwatch
+{% endblock %}
+
+
+{% block body %}
+<!--<div class="container">-->
+    <div>
+        <h1 id="display">00:00:00</h1>
+    </div>
+    <div class="buttons">
+    <button class="btn btn-outline-success btn-lg" id="startStop" onclick="startStop()">Start</button>
+    <button class="btn btn-outline-dark btn-lg" id="reset" onclick="reset()">Reset</button>
+    </div><br>
+    <form action="/workout">
+        <button class="btn btn-dark" id="work">Back to Workout</button>
+    </form>
+<!--</div>-->
+{% endblock %}

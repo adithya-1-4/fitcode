@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block class %}
+    login
+{% endblock %}
+
+{% block body %}
+    <form action="/register" method="post">
+        <div class="form-group">
+            <input  autocomplete="off" autofocus class="form-control" id="username" name="username" placeholder="Username" type="text" onKeyup="checkform()">
+        </div>
+        <div class="form-group" style="text-align: center">
+            <input class="form-control" id="password" name="password" placeholder="Password" type="password" aria-describedby="passwordHelpInline" onKeyup= "checkform()">
+        </div>
+        <div class="form-group">
+            <input class="form-control" id="confirmation" name="confirmation" placeholder="Confirm Password" type="password" onKeyup="checkform()">
+        </div>
+        <small id="passwordHelpInline" class="text-muted">
+              Password must have atleast 6 characters
+        </small><br>
+        <select class="custom-select" name="level" id="level">
+          <option disabled selected hidden>Level of Fitness</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select><br>
+        <br>
+        <button class="btn btn-outline-dark" id="submit" type="submit" disabled>Register</button>
+    </form>
+    <script>
+        function checkform() {
+            if (document.querySelector("#username").value == '' || document.querySelector("#password").value == '' || document.querySelector("#confirmation").value == '') {
+                document.querySelector("#submit").disabled = true;
+            }
+            else if (document.querySelector("#password").value !=  document.querySelector("#confirmation").value) {
+                 document.querySelector("#submit").disabled = true;
+            }
+            else if ((document.querySelector("#password").value).length < 6) {
+                document.querySelector("#submit").disabled = true;
+            }
+            else {
+                document.querySelector("#submit").disabled = false;
+            }
+        }
+    </script>
+{% endblock %}

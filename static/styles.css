@@ -1,0 +1,90 @@
+
+
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+.login {
+    background-color: #3FEEE6;
+}
+
+
+.home {
+    background-color: #55BCC9;
+}
+
+.stopwatch {
+    background-color: #CAFAFE;
+}
+
+
+
+#display {
+    text-align:center;
+    margin-left: 0px;
+    margin-right: 0px;
+    font-family: sans-serif;
+    font-size: 70px;
+}
+
+
+#timerr {
+    width: 100%;
+    font-size: 85px;
+    font-family: sans-serif;
+}
+
+.histique {
+    background-color: #97CAEF;
+}
+
+.custom-select {
+    width: 12em;
+}
+
+.intro {
+    font-family: "Raleway", helvetica;
+    font-size: 60px;
+}
+
+.parts {
+    font-family:"Raleway", helvetica;
+    font-size: 18px;
+    text-align-last: start;
+}
+.workout {
+    font-family: "Raleway", helvetica;
+    font-size: 18px;
+    text-align-last: start;
+}
+.instruction {
+    font-family:  helvetica;
+    font-size: 18px;
+    text-align-last: start;
+}
+
+.warmup a{
+    color: black;
+    text-align: left;
+}
+.wu {
+    font-family:"Raleway", sans-serif;
+    font-size:20px;
+    text-align-last: start;
+}

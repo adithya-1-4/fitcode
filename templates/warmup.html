@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Warm Up
+{% endblock %}
+
+{% block class %}
+    home
+{% endblock %}
+
+{% block body %}
+    <form action="/workout">
+    <div class="alert alert-info" role="alert">
+       A good warm up is recommended before any workout. You can do any one of the warm ups below,
+       or a combination of them. Each person requires a different amount of warm up before a workout, so
+       make sure you warm up until you are ready. Don't strain yourself in the warm up, it is not meant to tire
+       you out.
+    </div>
+    <button class="btn btn-outline-dark" >Back to workout</button><br>
+    </form>
+    <h4 style="text-align-last: start">Warm Up 1:</h4>
+    <div class="wu">
+        30 Jumping Jacks<br>
+        10 Touch Downs<br>
+        10 Side Step<br>
+        Repeat above 3 sets
+    </div>
+    <h4 style="text-align-last: start">Warm Up 2:</h4>
+    <div class="wu">
+        30 seconds Jumping Jacks<br>
+        30 seconds Pendulum <br>Swings<br>
+        Repeat above 3 sets
+    </div>
+    <h4 style="text-align-last: start">Warm Up 3:</h4>
+    <div class="wu">
+        10 Jump touch-downs<br>
+        20 Alternate toe touch<br>
+        30 seconds jog in place<br>
+        Repeat above 3 sets
+    </div>
+    <h4 style="text-align-last: start">Warm Up 4:</h4>
+    <div class="wu">
+        10 lateral circles<br>
+        10 Alternate toe touch<br>
+        30 Jumping Jacks<br>
+        Repeat above 2 sets
+    </div>
+    <h4 style="text-align-last: start">Warm Up 5:</h4>
+    <div class="wu">
+        5 floors staircase<br>
+        30 seconds Pendulum <br>Swings<br>
+        Repeat above 2 sets
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Workout
+{% endblock %}
+
+{% block class %}
+    home
+{% endblock %}
+
+{% block body %}
+    <div class="instruction">
+        <a href="/warmup" style="color:black">Warm Up</a><br>
+        Today's Workout({{time}} minutes):
+    </div>
+    <div class="workout">
+        {% for exercise in workout: %}
+            {{exercise}}<br>
+        {% endfor %}<br>
+        <div class="instruction">
+        {{instruction}}
+        </div><br>
+        {% if level == 'advanced': %}
+            <div class="alert alert-info" role="alert">
+              If you find 1 minute exercises not challenging enough, you can increase the time or reduce the amount of rest between each exercise and sets.
+            </div>
+        {% elif level == 'intermediate': %}
+            <div class="alert alert-info" role="alert">
+              If you find the 45 seconds hard at first, slowly build up from 30 seconds.
+            </div>
+        {% elif level == 'beginner': %}
+            <div class="alert alert-info" role="alert">
+              If you find that 30 second exercises are too hard, you can start at 20 seconds and build your way up but make sure you dont take
+              too long a break between exercises.Once comfortable with 30 seconds, you can slowly increse the amount of time.
+            </div>
+        {% else: %}
+            <div class="alert alert-info" role="alert">
+              If you find that 30 second exercises are too hard, you can start at 20 seconds and build your way up but make sure you dont take
+              too long a break between exercises.Once comfortable with 30 seconds, you can slowly increse the amount of time.
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}
