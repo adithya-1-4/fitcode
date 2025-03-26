@@ -1,4 +1,4 @@
-Final Project: A Flask Web Application
+Project: A Flask Web Application
 Languages: HTML, CSS, Java Script, SQL, Python
 Name of Project: FitCode
 
@@ -44,5 +44,9 @@ The page that displays the workout also has a link to warmup page which provides
 which the user can choose.
 
 
+Gif:
+
+
+![Untitled](https://github.com/user-attachments/assets/74daf22e-eb15-4ae7-b5d0-72a00762196c)
 
 
