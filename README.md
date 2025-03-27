@@ -88,8 +88,5 @@ If you encounter database-related errors:
 2. Run `python init_db.py` to recreate the database
 3. Restart the application
 
-## Demo
-
-![FitCode Demo](https://github.com/user-attachments/assets/74daf22e-eb15-4ae7-b5d0-72a00762196c)
 
 
