@@ -8,18 +8,21 @@
     stopwatch
 {% endblock %}
 
-
 {% block body %}
-<!--<div class="container">-->
-    <div>
-        <h1 id="display">00:00:00</h1>
+    <div class="form-container">
+        <h2 class="mb-4">Workout Stopwatch</h2>
+        
+        <div>
+            <h1 id="display">00:00:00</h1>
+        </div>
+        
+        <div class="button-group mt-4">
+            <button class="btn btn-outline-success btn-lg" id="startStop">Start</button>
+            <button class="btn btn-outline-dark btn-lg" id="reset">Reset</button>
+        </div>
+        
+        <div class="mt-4">
+            <a href="/workout" class="btn btn-dark">Back to Workout</a>
+        </div>
     </div>
-    <div class="buttons">
-    <button class="btn btn-outline-success btn-lg" id="startStop" onclick="startStop()">Start</button>
-    <button class="btn btn-outline-dark btn-lg" id="reset" onclick="reset()">Reset</button>
-    </div><br>
-    <form action="/workout">
-        <button class="btn btn-dark" id="work">Back to Workout</button>
-    </form>
-<!--</div>-->
 {% endblock %}

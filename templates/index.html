@@ -9,10 +9,18 @@
 {% endblock %}
 
 {% block body %}
-    <p class="intro">Hello! Welcome to today's session.</p>
-    <p class="intro">Are you ready to workout?</p>
-    <form action="/time">
-        <button type="submit" class="btn btn-dark btn-lg">Let's Go!!</button>
-    </form>
-
+    <div class="form-container">
+        <h1 class="intro mb-4">Welcome to FitCode</h1>
+        <p class="lead mb-4">Your personalized home workout companion. Ready to get moving?</p>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <p class="card-text">FitCode helps you create custom workouts based on your fitness level and preferences. No equipment needed!</p>
+            </div>
+        </div>
+        
+        <a href="/time" class="btn btn-dark btn-lg">
+            <i class="fas fa-play-circle mr-2"></i>Let's Start Working Out!
+        </a>
+    </div>
 {% endblock %}

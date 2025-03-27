@@ -9,15 +9,17 @@
 {% endblock %}
 
 {% block body %}
-    <div style="font-size: 20px; font-family: helvetica">
-        Enter how long you want your workout to be:
-    </div><br>
-   <form action="/time" method="post">
-        <div class="form-group">
-            <input autocomplete="off" class="form-control" min="0" name="time" id="time" placeholder="Time(in minutes)" type="number">
+    <div class="form-container">
+        <div style="font-size: 20px; font-family: helvetica; margin-bottom: 1.5rem;">
+            Enter how long you want your workout to be:
         </div>
-        <button class="btn btn-outline-dark" type="submit" id="next" >Next</button>
-    </form>
+        <form action="/time" method="post">
+            <div class="form-group" style="width: 100%;">
+                <input autocomplete="off" class="form-control" min="0" name="time" id="time" placeholder="Time(in minutes)" type="number">
+            </div>
+            <button class="btn btn-outline-dark" type="submit" id="next">Next</button>
+        </form>
+    </div>
     <script>
         document.querySelector("#time").onkeyup = function() {
             if (document.querySelector("#time").value === null || document.querySelector("#time").value === 0) {

@@ -1,91 +1,136 @@
-//Define variables to hold time values
-let tseconds = document.querySelector("#tseconds").value;
-let tminutes = document.querySelector("#tminutes").value;
-let thours = document.querySelector("#thours").value;
+// Timer functionality
+// Define variables to hold time values
+let tseconds = 0;
+let tminutes = 0;
+let thours = 0;
 
-//define vars to hold "display values"
-let tdisplaySeconds = document.querySelector("#tseconds").value;;
-let tdisplayMinutes = document.querySelector("#tminutes").value;;
-let tdisplayHours = document.querySelector("#thours").value;;
+// Define vars to hold display values
+let tdisplaySeconds = 0;
+let tdisplayMinutes = 0;
+let tdisplayHours = 0;
 
-//define var to hold seinterval function
+// Define var to hold interval function
 let tinterval = null;
 
-//define var to hold stopwatch status
+// Define var to hold timer status
+let tstatus = "stopped";
 
-let tstatus = "stopped"
+// Initialize timer
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if elements exist to avoid errors
+    if (document.getElementById("tstartStop") && document.getElementById("display_timer")) {
+        document.getElementById("tstartStop").addEventListener("click", tstartStop);
+        
+        if (document.getElementById("treset")) {
+            document.getElementById("treset").addEventListener("click", treset);
+        }
+    }
+});
 
-//Stopwatch function (logic to determine when to increment next value etc.)
+// Timer function
 function timer() {
+    // Check if timer has reached zero
     if (tseconds === 0) {
         if (tminutes === 0) {
-            if (thours > 0) {
-                thours = thours - 1
-                tminutes = 59
-                tseconds = 59
+            if (thours === 0) {
+                // Timer finished
+                window.clearInterval(tinterval);
+                document.getElementById("tstartStop").innerHTML = "Start";
+                document.getElementById("tstartStop").className = "btn btn-outline-success btn-lg";
+                tstatus = "stopped";
+                
+                // Alert user
+                alert("Timer complete!");
+                
+                return;
+            } else {
+                thours--;
+                tminutes = 59;
+                tseconds = 59;
             }
-            else {
-                STOP
-            }
+        } else {
+            tminutes--;
+            tseconds = 59;
         }
-        else {
-            tminutes = tminutes - 1
-            tseconds = 59
-        }
-
-    }
-    else {
-        tseconds = tseconds - 1
+    } else {
+        tseconds--;
     }
 
-    tseconds--
-    //if seconds/minutes/hours is only one digit, add leading 0 to value
-    if (tseconds < 10) {
-        tdisplaySeconds = "0" + tseconds.toString()
-    }
-    else {
-        tdisplaySeconds = tseconds
-    }
-    if (tminutes < 10) {
-        tdisplayMinutes = "0" + tminutes.toString()
-    }
-    else {
-        tdisplayMinutes = tminutes
-    }
-    if (thours < 10) {
-        tdisplayHours = "0" + thours.toString()
-    }
-    else {
-        tdisplayHours = thours
-    }
+    // Format display values
+    tdisplaySeconds = tseconds < 10 ? "0" + tseconds : tseconds;
+    tdisplayMinutes = tminutes < 10 ? "0" + tminutes : tminutes;
+    tdisplayHours = thours < 10 ? "0" + thours : thours;
 
-    //Display updated time values to user
-    document.getElementById("display_timer").innerHTML = tdisplayHours + ":" + tdisplayMinutes + ":" + tdisplaySeconds
+    // Display updated time values to user
+    document.getElementById("display_timer").innerHTML = tdisplayHours + ":" + tdisplayMinutes + ":" + tdisplaySeconds;
 }
 
-
-
+// Function to start/stop timer
 function tstartStop() {
     if (tstatus === "stopped") {
-        //start the stopwatch by calling the set interval function
-
-        tinterval = window.setInterval(timer, 1000)
+        // Get input values if they exist
+        let inputSeconds = document.getElementById("tseconds");
+        let inputMinutes = document.getElementById("tminutes");
+        let inputHours = document.getElementById("thours");
+        
+        // Set initial values if inputs exist
+        if (inputSeconds && inputMinutes && inputHours) {
+            tseconds = parseInt(inputSeconds.value) || 0;
+            tminutes = parseInt(inputMinutes.value) || 0;
+            thours = parseInt(inputHours.value) || 0;
+            
+            // Format display values
+            tdisplaySeconds = tseconds < 10 ? "0" + tseconds : tseconds;
+            tdisplayMinutes = tminutes < 10 ? "0" + tminutes : tminutes;
+            tdisplayHours = thours < 10 ? "0" + thours : thours;
+            
+            // Display initial time
+            document.getElementById("display_timer").innerHTML = tdisplayHours + ":" + tdisplayMinutes + ":" + tdisplaySeconds;
+        }
+        
+        // Check if timer has a valid value
+        if (tseconds === 0 && tminutes === 0 && thours === 0) {
+            alert("Please set a time before starting the timer");
+            return;
+        }
+        
+        // Start the timer
+        tinterval = window.setInterval(timer, 1000);
         tstatus = "started";
-        document.getElementById("tstartStop").innerHTML = "Stop"
-        document.getElementById("tstartStop").className = "btn btn-outline-danger btn-lg"
-    }
-    else {
-        window.clearInterval(tinterval)
-        document.getElementById("tstartStop").innerHTML = "Start"
-        document.getElementById("tstartStop").className = "btn btn-outline-success btn-lg"
-        tstatus = "stopped"
+        document.getElementById("tstartStop").innerHTML = "Stop";
+        document.getElementById("tstartStop").className = "btn btn-outline-danger btn-lg";
+    } else {
+        // Stop the timer
+        window.clearInterval(tinterval);
+        document.getElementById("tstartStop").innerHTML = "Start";
+        document.getElementById("tstartStop").className = "btn btn-outline-success btn-lg";
+        tstatus = "stopped";
     }
 }
 
-//function to reset the stopwatch
+// Function to reset the timer
 function treset() {
-    window.clearInterval(tinterval)
-    document.getElementById("display_timer").innerHTML = "00:00:00"
-    document.getElementById("tstartStop").innerHTML = "Start"
-    document.getElementById("tstartStop").className = "btn btn-outline-success btn-lg"
+    window.clearInterval(tinterval);
+    
+    // Reset time values
+    tseconds = 0;
+    tminutes = 0;
+    thours = 0;
+    
+    // Reset display values
+    document.getElementById("display_timer").innerHTML = "00:00:00";
+    document.getElementById("tstartStop").innerHTML = "Start";
+    document.getElementById("tstartStop").className = "btn btn-outline-success btn-lg";
+    tstatus = "stopped";
+    
+    // Reset input fields if they exist
+    let inputSeconds = document.getElementById("tseconds");
+    let inputMinutes = document.getElementById("tminutes");
+    let inputHours = document.getElementById("thours");
+    
+    if (inputSeconds && inputMinutes && inputHours) {
+        inputSeconds.value = 0;
+        inputMinutes.value = 0;
+        inputHours.value = 0;
+    }
 }

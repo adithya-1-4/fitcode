@@ -1,52 +1,95 @@
-Project: A Flask Web Application
-Languages: HTML, CSS, Java Script, SQL, Python
-Name of Project: FitCode
+# FitCode
 
-Inspiration:
-Given the current climate due to Covid-19, people have been forced indoors. With
-gyms closed in many parts of the world, people find it hard to find a way to expend
-their energy. This is especially true in a country like India where it is extremely
-hot in summer and people hardly feel like going outside for a walk or run.
+A Flask Web Application for personalized home workouts.  
+Languages: HTML, CSS, JavaScript, SQL, Python
 
-Initially I started doing my own workouts at home when the lockdown started. But after sometime,
-it became boring to try to come up with new workouts everyday. This happened when I was working on
-the week 6 problem set. Then it occured to me that I could create a python program to output
-a randomly ordered list of 12 exercises(20 minute workout), 3 from each of the categories: arms, legs, abs, cardio. I
-used this for a while and then once a learnt web programming and flask, I realised that I could
-turn my python program into a web application but one which is user friendly and adaptive to
-the users requirements.
+## About
 
-Features:
-Register- Lets you register with username and password, along witha fitness level(beginner/intermediate/advanced),
-stores all data in a SQL database. Checks all requirements for password and username.
+FitCode is a workout generation application that helps you create personalized workouts based on your fitness level and time availability. With gyms closed in many parts of the world due to COVID-19, FitCode provides a solution for maintaining fitness at home without equipment.
 
-Log In- Lets you login with username and password.
+## Features
 
-Timer: Provides the user with a user friendly timer so that user does not need to exit app for a timer.
+- **Register**: Create an account with username, password, and fitness level (beginner/intermediate/advanced)
+- **Login**: Access your personalized workouts
+- **Timer**: Track your workout intervals
+- **Stopwatch**: Time your exercises
+- **History**: View your past workouts
+- **Change Level**: Adjust your fitness level as you progress
+- **Workout Generator**: Generate customized workouts based on your preferences and time constraints
 
-Stopwatch: Provides user with a user friendly stopwatch, incase the user prefers a stopwatch over a timer.
+## How It Works
 
-History: Provides the user with access to workouts done in the past along with the date.
+1. Log in to access the home page
+2. Click "Let's Start Working Out" to begin
+3. Enter how long you want your workout to be
+4. Select which body areas you want to work on (arms, legs, abs, cardio)
+5. Get a personalized workout based on your selections and fitness level
+6. Use the built-in timer and stopwatch tools to track your workout
 
-Change Level: This feature allows you to change your level of fitness to access more challenging workouts.
+## Installation and Setup
 
-Log Out: User can log out to prevent others from using account or to log into a different account.
+1. Clone this repository:
+   ```
+   git clone <repository-url>
+   cd fitcode
+   ```
 
-Working:
-As soon as you login, you are taken to the home page, which has a button which lets you start
-a workout.Click on it and you are taken to a page asking you how long you want your workout to be.After, you
-enter this, there is page asking you what you want to work on using a checkbox form. The categories available are:
-arms, legs, abs, and cardio. Once you submit this your workout is ready.
-I have implemented an algorithm that will provide the user with a workout (according to categories selected) that
-can be completed within the time limit and of appropriate difficulty.The algorithm accounts for breaks between
-exercises and such.
-The page that displays the workout also has a link to warmup page which provides the user with a list of warmuos from
-which the user can choose.
+2. Create a virtual environment and activate it:
+   ```
+   python -m venv venv
+   
+   # On Windows
+   venv\Scripts\activate
+   
+   # On macOS/Linux
+   source venv/bin/activate
+   ```
 
+3. Install the required packages:
+   ```
+   pip install -r requirements.txt
+   ```
 
-Gif:
+4. Initialize the database:
+   ```
+   python init_db.py
+   ```
+   This step is crucial as it creates all the necessary tables and populates them with initial exercise data.
 
+5. Run the application:
+   ```
+   python application.py
+   ```
 
-![Untitled](https://github.com/user-attachments/assets/74daf22e-eb15-4ae7-b5d0-72a00762196c)
+6. Open your browser and navigate to:
+   ```
+   http://localhost:5000
+   ```
+
+7. Register a new account and start working out!
+
+## Database Structure
+
+- **users**: Stores user information including username, password hash, and fitness level
+- **arms**, **legs**, **abs**, **cardio**: Tables containing exercise options for each category
+- **workouts**: Stores user workout history with timestamps
+
+## Technical Details
+
+- Built with Flask web framework
+- Uses SQLAlchemy for database management
+- Styled with Bootstrap and custom CSS
+- Uses JavaScript for timer and stopwatch functionality
+
+## Troubleshooting
+
+If you encounter database-related errors:
+1. Delete the project.db file (if it exists)
+2. Run `python init_db.py` to recreate the database
+3. Restart the application
+
+## Demo
+
+![FitCode Demo](https://github.com/user-attachments/assets/74daf22e-eb15-4ae7-b5d0-72a00762196c)
 
 

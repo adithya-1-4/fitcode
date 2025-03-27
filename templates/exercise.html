@@ -12,14 +12,22 @@
     <h4 style="text-align: start;">Choose one or more of the following
     to work on during your workout today:</h4>
     <form class="parts" action="/exercise" method="post">
-        <input type="checkbox" id="arms" name="categories" value="arms">
-        <label for="arms">Arms</label><br>
-        <input type="checkbox" id="abs" name="categories" value="abs">
-        <label for="abs">Abs</label><br>
-        <input type="checkbox" id="legs" name="categories" value="legs">
-        <label for="legs">Legs</label><br>
-        <input type="checkbox" id="cardio" name="categories" value="cardio">
-        <label for="cardio">Cardio</label><br>
+        <label class="checkbox-container" for="arms">
+            <input type="checkbox" id="arms" name="categories" value="arms">
+            Arms
+        </label>
+        <label class="checkbox-container" for="abs">
+            <input type="checkbox" id="abs" name="categories" value="abs">
+            Abs
+        </label>
+        <label class="checkbox-container" for="legs">
+            <input type="checkbox" id="legs" name="categories" value="legs">
+            Legs
+        </label>
+        <label class="checkbox-container" for="cardio">
+            <input type="checkbox" id="cardio" name="categories" value="cardio">
+            Cardio
+        </label>
         <button class="btn btn-outline-dark" id="submit" type="submit">Submit</button>
     </form>
     <script>

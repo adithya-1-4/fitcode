@@ -1,14 +1,14 @@
-
-
+/* Global styles */
+body {
+    font-family: 'Poppins', sans-serif;
+}
 
 main .form-control
 {
     /* center form controls */
     display: inline-block;
-
-    /* override Bootstrap's 100% width for form controls */
-    width: auto;
-
+    margin-bottom: 1rem;
+    border-radius: 8px;
 }
 
 main
@@ -18,12 +18,13 @@ main
 
     /* center contents */
     text-align: center;
+    padding: 2rem 0;
 }
 
+/* Background colors - one solid color per page */
 .login {
     background-color: #3FEEE6;
 }
-
 
 .home {
     background-color: #55BCC9;
@@ -33,58 +34,230 @@ main
     background-color: #CAFAFE;
 }
 
-
-
-#display {
-    text-align:center;
-    margin-left: 0px;
-    margin-right: 0px;
-    font-family: sans-serif;
-    font-size: 70px;
-}
-
-
-#timerr {
-    width: 100%;
-    font-size: 85px;
-    font-family: sans-serif;
-}
-
 .histique {
     background-color: #97CAEF;
 }
 
-.custom-select {
-    width: 12em;
+/* Timer & Stopwatch styles */
+#display, #display_timer {
+    text-align: center;
+    margin: 1.5rem auto;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 70px;
+    font-weight: 600;
+    color: #333;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    padding: 0.5rem 1rem;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 10px;
+    display: inline-block;
 }
 
+/* Timer input fields */
+.form-group input[type="number"] {
+    width: 100%;
+    max-width: 120px;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+}
+
+.form-group input[type="number"]:focus {
+    border-color: #55BCC9;
+    box-shadow: 0 0 0 0.2rem rgba(85, 188, 201, 0.25);
+}
+
+/* Remove number input spinners */
+.form-group input[type="number"]::-webkit-inner-spin-button,
+.form-group input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form-group input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Form elements */
+.custom-select {
+    width: 12em;
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Typography */
 .intro {
-    font-family: "Raleway", helvetica;
+    font-family: 'Montserrat', sans-serif;
     font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #333;
 }
 
 .parts {
-    font-family:"Raleway", helvetica;
+    font-family: 'Raleway', sans-serif;
     font-size: 18px;
-    text-align-last: start;
-}
-.workout {
-    font-family: "Raleway", helvetica;
-    font-size: 18px;
-    text-align-last: start;
-}
-.instruction {
-    font-family:  helvetica;
-    font-size: 18px;
-    text-align-last: start;
+    text-align: start;
+    margin-bottom: 1rem;
 }
 
-.warmup a{
-    color: black;
-    text-align: left;
+.workout {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    text-align: start;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 8px;
 }
+
+.instruction {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    text-align: start;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 8px;
+    border-left: 4px solid #55BCC9;
+}
+
+/* Buttons */
+.btn-outline-success, .btn-outline-danger, .btn-outline-dark, .btn-dark {
+    margin: 0.5rem;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 1.5rem;
+}
+
+/* Warmup links */
+.warmup a {
+    color: #333;
+    text-align: left;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.warmup a:hover {
+    color: #55BCC9;
+    background-color: rgba(255,255,255,0.7);
+}
+
 .wu {
-    font-family:"Raleway", sans-serif;
-    font-size:20px;
-    text-align-last: start;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    text-align: start;
+    margin-bottom: 1rem;
+}
+
+/* Navbar styling */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+/* Form container styling */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+/* Card styling */
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Time input specific style */
+input#time.form-control {
+    min-width: 300px;
+    width: 100% !important;
+    font-size: 1.1rem;
+    padding: 0.75rem;
+    text-align: center;
+}
+
+/* Workout selection checkboxes */
+.parts {
+    margin: 2rem 0;
+}
+
+.parts .checkbox-container {
+    display: block;
+    position: relative;
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.parts .checkbox-container:hover {
+    background-color: rgba(52, 58, 64, 0.1);
+}
+
+.parts .checkbox-container input[type="checkbox"] {
+    margin-right: 1rem;
+    transform: scale(1.2);
+    cursor: pointer;
+    accent-color: #343a40;  /* Navbar dark color */
+}
+
+.parts .checkbox-container label {
+    margin: 0;
+    cursor: pointer;
+    display: inline-block;
+    width: calc(100% - 2rem);  /* Full width minus checkbox width */
+    vertical-align: middle;
+}
+
+/* Auth forms styling (login, register, level change) */
+form[action="/login"] .form-control,
+form[action="/register"] .form-control,
+form[action="/level"] .form-control {
+    width: 200px;
+    margin: 0 auto;
+}
+
+form[action="/login"] .custom-select,
+form[action="/register"] .custom-select,
+form[action="/level"] .custom-select {
+    width: 200px;
+    margin: 1rem auto;
 }
